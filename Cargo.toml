@@ -22,6 +22,7 @@ wayland-client = "0.28"
 wayland-protocols = { version = "0.28" , features = ["client", "unstable_protocols"] }
 wayland-cursor = "0.28"
 calloop = { version = "0.7.2", optional = true }
+smallvec = "1"
 
 [features]
 default = ["calloop", "dlopen"]
