@@ -141,7 +141,7 @@ pub fn map_keyboard<F>(
     seat: &Attached<wl_seat::WlSeat>,
     rmlvo: Option<RMLVO>,
     callback: F,
-) -> Result<wl_keyboard::WlKeyboard, Error>
+) -> Result<wayland_client::Main<wl_keyboard::WlKeyboard>, Error>
 where
     F: FnMut(Event, wl_keyboard::WlKeyboard, wayland_client::DispatchData<'_>) + 'static,
 {
@@ -168,7 +168,7 @@ where
         kbd_handler.event(keyboard.detach(), event, data)
     });
 
-    Ok(keyboard.detach())
+    Ok(keyboard)
 }
 
 /// Implement a keyboard for keymap translation with key repetition
